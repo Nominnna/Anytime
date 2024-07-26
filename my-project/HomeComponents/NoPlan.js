@@ -1,48 +1,55 @@
+// NoPlan.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import the hook
 
-const NoPlan = ({ addNewPlan }) => (
-  <View style={styles.noPlanContainer}>
-    <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
-    <Text style={styles.plan_date}>Зөвхөн танд зориулсан шинэ {'\n'}төлөвлөгөө үүсгэцгээе</Text>
-    </TouchableOpacity>
-  </View>
-);
+const { height } = Dimensions.get('window');
+
+const NoPlan = () => {
+  const navigation = useNavigation(); // Get the navigation object
+
+  return (
+    <View style={styles.noPlanContainer}>
+      <View style={styles.addButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('FitnessApp')}>
+          <Text style={styles.plan_date}>Зөвхөн таньд зориулсан шинэ {'\n'}төлөвлөгөө үүсгэцгээе</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   noPlanContainer: {
-    width:'100%',
+    width: '100%',
     height: 150,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  noPlanText: {
-    color: '#fff',
-    fontSize: 18,
-    marginBottom: 20,
-  },
   addButton: {
     padding: 10,
     width: '90%',
-    height:100,
+    height: height * 0.13,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9800FF',
-    borderRadius: 5,
+    backgroundColor: "rgba(152, 0, 255, 0.3)",
+    borderRadius: 20,
+    borderColor: "#9800FF",
+    borderWidth: 2,
   },
   addButtonText: {
     color: '#fff',
     fontWeight: 'bold',
   },
   plan_date: {
-    marginVertical:2,
+    marginVertical: 2,
     width: '100%',
-    padding:2,
+    padding: 2,
     fontWeight: "bold",
-    textAlign:'center',
-   fontSize: 16,
-   color: "#fff",
-   }
+    textAlign: 'center',
+    fontSize: height * 0.022,
+    color: "#fff",
+  }
 });
 
 export default NoPlan;

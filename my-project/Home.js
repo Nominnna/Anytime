@@ -1,7 +1,9 @@
+// Home.js
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import NavigationButton from "./HomeComponents/NavigationButton";
 import MyComponent from "./HomeComponents/MyComponent";
+import NoPlan from './HomeComponents/NoPlan';
 
 export default function Home() {
   return (
