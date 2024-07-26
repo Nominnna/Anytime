@@ -1,11 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Text, ImageBackground, Image } from "react-native";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Fontisto } from '@expo/vector-icons';
+import {
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  Dimensions,
+} from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { Fontisto } from "@expo/vector-icons";
 
-const UserInfo = ({ Name, Pro_pic, Age, Height, Weight }) => {
+const { width, height } = Dimensions.get("window");
+
+const UserInfo = ({ Name, Age, Height, Weight }) => {
   return (
+    // background image
     <ImageBackground
       source={require("../assets/top_bg.png")}
       style={styles.backgroundImage}
@@ -28,21 +38,25 @@ const UserInfo = ({ Name, Pro_pic, Age, Height, Weight }) => {
         <View style={styles.userDetails}>
           <View style={styles.userDetailContainer}>
             <View style={styles.icon_base}>
-            <FontAwesome name="balance-scale" size={20} color="#ffffff" />
+              <FontAwesome name="balance-scale" size={20} color="#ffffff" />
             </View>
             <Text style={styles.userDetail1}>{Weight}КГ</Text>
             <Text style={styles.userDetail}>ЖИН</Text>
           </View>
           <View style={styles.userDetailContainer}>
             <View style={styles.icon_base}>
-            <MaterialCommunityIcons name="human-male-height-variant" size={20} color="#ffffff" />
+              <MaterialCommunityIcons
+                name="human-male-height-variant"
+                size={20}
+                color="#ffffff"
+              />
             </View>
             <Text style={styles.userDetail1}>{Height}</Text>
             <Text style={styles.userDetail}>ӨНДӨР</Text>
           </View>
           <View style={styles.userDetailContainer}>
             <View style={styles.icon_base}>
-            <Fontisto name="heartbeat-alt" size={24} color="#ffffff" />
+              <Fontisto name="heartbeat-alt" size={24} color="#ffffff" />
             </View>
             <Text style={styles.userDetail1}>{Age}</Text>
             <Text style={styles.userDetail}>НАС</Text>
@@ -62,19 +76,13 @@ const UserInfo = ({ Name, Pro_pic, Age, Height, Weight }) => {
 const styles = StyleSheet.create({
   backgroundImage: {
     width: "90%",
-    height: 340,
-  },
-  logoImage: {
-    width: 120,
-    height: 40,
-    marginBottom: 10,
+    height: height * 0.418,
   },
   userInfo: {
     width: "100%",
-    height: 200,
+    height: height * 0.246,
     backgroundColor: "rgba(58, 58, 58, 0.5)",
     borderRadius: 20,
-    marginTop: 0,
   },
   general_info: {
     padding: 10,
@@ -86,8 +94,8 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   icon_base: {
-    width: 40,
-    height: 40,
+    width: height * 0.05,
+    height: height * 0.05,
     borderRadius: 100,
     alignItems: "center",
     verticalAlign: "center",
@@ -100,8 +108,8 @@ const styles = StyleSheet.create({
     color: "white",
   },
   proimage: {
-    width: 60,
-    height: 60,
+    width: height * 0.08,
+    height: height * 0.08,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: "#9800FF",
@@ -118,11 +126,11 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(58, 58, 58, 0.5)",
   },
   greeting: {
-    fontSize: 16,
+    fontSize: height * 0.02,
     color: "#fff",
   },
   userName: {
-    fontSize: 18,
+    fontSize: height * 0.022,
     fontWeight: "bold",
     color: "#fff",
   },
@@ -133,7 +141,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   userDetail1: {
-    fontSize: 17,
+    fontSize: height * 0.021,
     marginVertical: 3,
     color: "#9800FF",
   },
@@ -142,14 +150,14 @@ const styles = StyleSheet.create({
     width: "30%",
   },
   userDetail: {
-    fontSize: 16,
+    fontSize: height * 0.022,
     marginVertical: 2,
     color: "#fff",
   },
   motto: {
-    fontSize: 20,
+    fontSize: height * 0.035,
     color: "#fff",
-    margin: 15,
+    margin: height * 0.018,
     paddingLeft: "3%",
     textAlign: "left",
   },
