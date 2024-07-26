@@ -1,35 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+
+const { height } = Dimensions.get('window');
 
 const NoPlan = ({ addNewPlan }) => (
   <View style={styles.noPlanContainer}>
-    <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
+    <View style={styles.addButton}>
+    <TouchableOpacity onPress={addNewPlan}>
     <Text style={styles.plan_date}>Зөвхөн таньд зориулсан шинэ {'\n'}төлөвлөгөө үүсгэцгээе</Text>
     </TouchableOpacity>
+    </View>
   </View>
 );
 
 const styles = StyleSheet.create({
   noPlanContainer: {
     width:'100%',
-    height: 150,
+    height: 150, // Set the height you want for the NoPlan container
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  noPlanText: {
-    color: '#fff',
-    fontSize: 18,
-    marginBottom: 20,
   },
   addButton: {
     padding: 10,
     width: '90%',
-    height:100,
+    height:height*0.13,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#9800FF',
-    borderRadius: 5,
+    backgroundColor: "rgba(152, 0, 255, 0.3)",
+    borderRadius: 20,
+    borderColor: "#9800FF",
+    borderWidth:2,
   },
+
   addButtonText: {
     color: '#fff',
     fontWeight: 'bold',
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     padding:2,
     fontWeight: "bold",
     textAlign:'center',
-   fontSize: 16,
+   fontSize: height*0.022,
    color: "#fff",
    }
 });
