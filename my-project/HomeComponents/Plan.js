@@ -7,7 +7,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Dimensions
 } from "react-native";
+
+const { height } = Dimensions.get('window');
 
 const Plan = ({ plans, addNewPlan }) => (
   <View style={styles.container}>
@@ -22,7 +25,7 @@ const Plan = ({ plans, addNewPlan }) => (
       </View>
       <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
         <View style={styles.plan}>
-          <AntDesign name="plus" size={24} color="black" />
+          <AntDesign name="plus" size={26} color="white" alignSelf="center"/>
         </View>
       </TouchableOpacity>
     </ScrollView>
@@ -31,12 +34,11 @@ const Plan = ({ plans, addNewPlan }) => (
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height: height*0.24,
     width: "90%",
   },
-
   scrollView: {
-    paddingVertical: 20,
+    paddingVertical: height*0.012,
   },
   plansContainer: {
     padding: 10,
@@ -44,28 +46,28 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   plan: {
-    height: 80,
+    height: height*0.09,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9800FF",
+    backgroundColor: "rgba(152, 0, 255, 0.3)",
+    borderRadius: 20,
+    borderColor: "#9800FF",
+    borderWidth:2,
     padding: 10,
     marginVertical: 5,
-    borderRadius: 5,
   },
   planTitle: {
-    fontSize: 17,
-    paddingVertical: 2,
+    fontSize: height*0.02,
+    paddingBottom: 10,
     width: "100%",
     color: "#fff",
     fontWeight: "bold",
   },
   planDate: {
+    textAlign:'right',
     color: "#fff",
   },
   addButton: {
     width: "95%",
-    backgroundColor: "#8e2de2",
-    borderRadius: 5,
     justifyContent: "center",
     alignSelf: "center",
   },
