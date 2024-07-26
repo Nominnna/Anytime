@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 const NoPlan = ({ addNewPlan }) => (
   <View style={styles.noPlanContainer}>
     <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
-    <Text style={styles.plan_date}>Зөвхөн таньд зориулсан шинэ {'\n'}төлөвлөгөө үүсгэцгээе</Text>
+    <Text style={styles.plan_date}>Зөвхөн танд зориулсан шинэ {'\n'}төлөвлөгөө үүсгэцгээе</Text>
     </TouchableOpacity>
   </View>
 );
